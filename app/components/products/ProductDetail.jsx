@@ -1,11 +1,11 @@
-
 import React from 'react';
-import { productsMock } from '@/app/mock/productsMock.jsx';
 import Image from 'next/image';
 import QuantSelec from './QuantSelec';
-export const ProductDetail = ({_id}) => {
-    const allProducts = productsMock(); 
-    const item = allProducts.find(p => p._id.$oid === _id)
+
+export const ProductDetail = async ({id}) => {
+  console.log('detail id', id);
+    const item = await fetch(`http://localhost:3000/api/producto/${id}`,{cache:"no-store"}).then(r => r.json())
+    console.log('item detail',item);
     
   return (
     <div className='max-w-4xl m-auto py-10 justify-center'>

@@ -1,14 +1,13 @@
-
 import React from 'react';
 import { ProductDetail } from '@/app/components/products/ProductDetail';
 
 
 const DetailPage = ({params}) => {
     
-    const { _id } = params
-
+    const { id } = params
+    console.log('page id', id);
     return (
-        <ProductDetail _id={_id} />
+        <ProductDetail id={id} />
     );
 };
 
