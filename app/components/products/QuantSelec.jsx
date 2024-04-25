@@ -2,17 +2,19 @@
 import { Boton } from "../ui/Boton";
 import { Counter } from "../ui/Counter";
 import { useState } from "react";
-
-
+import { useCartContext } from "../context/CartContext.jsx";
 
 const QuantSelec = ({item}) => {
+
+    const {addToCart} = useCartContext()
+
     const [quantity,setQuantity] = useState(1)
 
     const handleAdd = () => {
-        console.log({
-            ...item,
-            quantity
-        });
+       addToCart({
+        ...item,
+        quantity
+       })
     }
     return(
         <div className="flex flex-col gap-5 mt-6">
@@ -23,3 +25,4 @@ const QuantSelec = ({item}) => {
 }
 
 export default QuantSelec;
+

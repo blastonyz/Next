@@ -8,7 +8,7 @@ export const ProductDetail = async ({id}) => {
     console.log('item detail',item);
     
   return (
-    <div className='max-w-4xl m-auto py-10 justify-center'>
+    <div className='max-w-4xl m-auto py-40 justify-center items-center'>
         <section>
            <Image
             alt={item.title}

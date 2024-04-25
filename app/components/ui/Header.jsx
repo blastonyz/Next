@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import CartWidget from './CartWidget.jsx';
  
 const links = [
     { label: "Inicio",
@@ -41,6 +42,7 @@ export const Header = () => {
                 )
             })}
           </nav>
+          <CartWidget/>
       </div>
     </header>
   )

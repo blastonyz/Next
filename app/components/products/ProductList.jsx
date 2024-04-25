@@ -7,8 +7,10 @@ export const ProductList = async ({ categoria }) => {
     console.log('items',items);
 
     return (
-        <section className='container m-auto flex flex-wrap h-full gap-10 py-10'>
+        <section className='container m-auto'>
+             <div className='flex flex-wrap justify-center gap-10 pt-40'>
             {items.map(item => <ProductCard key={item.id} item={item}/>)}
+            </div>
         </section>
     );
 }
