@@ -4,7 +4,7 @@ import QuantSelec from './QuantSelec';
 
 export const ProductDetail = async ({id}) => {
   console.log('detail id', id);
-    const item = await fetch(`http://localhost:3000/api/producto/${id}`,{cache:"no-store"}).then(r => r.json())
+    const item = await fetch(`http://${process.env.VERCEL_URL}/api/producto/${id}`,{cache:"no-store"}).then(r => r.json())
     console.log('item detail',item);
     
   return (
