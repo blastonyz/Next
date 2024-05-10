@@ -22,12 +22,19 @@ export const CartProvider = ({children}) => {
         return cart.reduce((acc,item) => acc + item.quantity,0)
     }
 
+    const delProduct = (id) => {
+        const delProduct = cart.filter(item => item.id !== id);
+        console.log('producto borrado',delProduct);
+        setCart(delProduct)
+        
+    }
+
     const emptyCart = () => {
         setCart([])
     }
 
     return(
-        <CartContext.Provider value={{cart,addToCart,addToCart,isInCart,totalQty,emptyCart}}>
+        <CartContext.Provider value={{cart,addToCart,addToCart,isInCart,totalQty,emptyCart,delProduct}}>
             {children}
          </CartContext.Provider>
     )

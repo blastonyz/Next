@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore} from 'firebase/firestore';
+import { getAuth } from "firebase/auth";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyC8ke4C5odvQZfISAfwlRi_1sUSxUhZrSo",
   authDomain: "next-cc43a.firebaseapp.com",
   projectId: "next-cc43a",
@@ -13,3 +14,4 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const auth = getAuth(app)

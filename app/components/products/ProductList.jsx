@@ -3,7 +3,7 @@ import { ProductCard } from './ProductCard.jsx';
 
 
 export const ProductList = async ({ categoria }) => {
-    const items = await fetch(`http://${process.env.VERCEL_URL}/api/productos/${categoria}`,{cache:"no-store"}).then(r => { 
+    const items = await fetch(`http://${process.env.AUTH_DOMAIN}/api/productos/${categoria}`,{cache:"no-store"}).then(r => { 
     if(!r.ok){
         throw new Error
     }    

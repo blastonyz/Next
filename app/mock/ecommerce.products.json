@@ -1,0 +1,171 @@
+[{
+  "_id": {
+    "$oid": "655a5148d55c6ea6ebbb40c2"
+  },
+  "title": "Sierra Circular Gamma",
+  "description": "1200w",
+  "price": 80000,
+  "category": "electricos",
+  "code": 12,
+  "stock": 9,
+  "statusP": true,
+  "image":"sierra-gamma.jpg",
+  "thumbnail": [],
+  "updatedAt": {
+    "$date": "2024-01-29T23:20:25.307Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "655a5148d55c6ea6ebbb40c3"
+  },
+  "title": "Compresor Daewo",
+  "description": "1/2hp",
+  "price": 55000,
+  "category": "neumaticos",
+  "code": 375,
+  "stock": 5,
+  "statusP": true,
+  "image":"compresor.jpg",
+  "thumbnail": [],
+  "updatedAt": {
+    "$date": "2024-03-22T04:48:33.218Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "655a5148d55c6ea6ebbb40c4"
+  },
+  "title": "Amoladora Stanley",
+  "description": "2 1/2",
+  "price": 52000,
+  "category": "electricos",
+  "code": 221,
+  "stock": 12,
+  "statusP": true,
+  "image":"amoladora.jpg",
+  "thumbnail": [],
+  "updatedAt": {
+    "$date": "2024-01-22T08:38:18.147Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "655a5148d55c6ea6ebbb40c5"
+  },
+  "title": "Caladora Versa",
+  "description": "900w",
+  "price": 55000,
+  "category": "electricos",
+  "code": 475,
+  "stock": 132,
+  "statusP": true,
+  "image":"caladora.jpg",
+  "thumbnail": [],
+  "updatedAt": {
+    "$date": "2024-01-20T09:15:57.602Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "655a5148d55c6ea6ebbb40c6"
+  },
+  "title": "Torno Neumatico",
+  "description": "con accesorios",
+  "price": 1800,
+  "category": "neumaticos",
+  "code": 85,
+  "stock": 18,
+  "statusP": true,
+  "image":"torno.jpg",
+  "thumbnail": [],
+  "updatedAt": {
+    "$date": "2024-02-07T13:31:25.941Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "655a5148d55c6ea6ebbb40c7"
+  },
+  "title": "Taladro p/Drywalt Bosch",
+  "description": "700w",
+  "price": 25000,
+  "category": "electricos",
+  "code": 566,
+  "stock": 65,
+  "statusP": true,
+  "image":"taladro-drywall.jpg",
+  "thumbnail": []
+},
+{
+  "_id": {
+    "$oid": "655a5148d55c6ea6ebbb40c8"
+  },
+  "title": "Termofusora Noderrit",
+  "description": "1500w",
+  "price": 35000,
+  "category": "electricos",
+  "code": 862,
+  "stock": 34,
+  "statusP": true,
+  "image":"termofusora.jpg",
+  "thumbnail": [],
+  "updatedAt": {
+    "$date": "2024-01-31T10:35:56.274Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "655a5148d55c6ea6ebbb40c9"
+  },
+  "title": "Motosierra Echo",
+  "description": "Z50",
+  "price": 21000,
+  "category": "combustion",
+  "code": 789,
+  "stock": 5,
+  "statusP": true,
+  "image":"motosierra.jpg",
+  "thumbnail": [],
+  "updatedAt": {
+    "$date": "2024-01-22T08:35:23.622Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "655a5148d55c6ea6ebbb40ca"
+  },
+  "title": "Soldadora Luqstoff",
+  "description": "2500w",
+  "price": 95000,
+  "category": "electricos",
+  "code": 654,
+  "stock": 39,
+  "statusP": true,
+  "image":"soldadora.jpg",
+  "thumbnail": [],
+  "updatedAt": {
+    "$date": "2024-01-29T22:40:29.573Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "655bc194a13b01768659cd9c"
+  },
+  "title": "Fresadora Skill",
+  "description": "750w",
+  "price": 34,
+  "category": "electricos",
+  "code": 34,
+  "stock": 123,
+  "statusP": true,
+  "image":"fresadora.jpg",
+  "thumbnail": [],
+  "createdAt": {
+    "$date": "2023-11-20T20:29:08.716Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-20T20:29:08.716Z"
+  },
+  "__v": 0
+}]

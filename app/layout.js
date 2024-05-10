@@ -4,6 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 import { Header } from "./components/ui/Header";
 import { CartProvider } from "./components/context/CartContext.jsx";
+import { AuthProvider } from "./components/context/AuthContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,10 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-      <CartProvider>  
-        <Header/>
-        {children}
-      </CartProvider>  
+      <AuthProvider>  
+          <CartProvider>  
+            <Header/>
+            {children}
+          </CartProvider>
+      </AuthProvider>  
         </body>
     </html>
   );

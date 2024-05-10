@@ -3,10 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const ProductCard = ({item}) => {
-  return (<article className='basis-72 shadow-lg rounded transform transition-transform hover:scale-105'>
+  return (<article className='basis-72 shadow-lg rounded transform transition-transform hover:scale-105 rounded-md'>
     <Link href={`/productos/detail/${item.id}`}
     className='flex flex-col'>
-        <div className='px-4 border-t'>
+        <div className='px-4 border-t rounded-md'>
             <Image
             alt={item.title}
             src={`/products-img/${item.image}`}

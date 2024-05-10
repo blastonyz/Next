@@ -11,10 +11,12 @@ const QuantSelec = ({item}) => {
     const [quantity,setQuantity] = useState(1)
 
     const handleAdd = () => {
+     
        addToCart({
         ...item,
-        quantity
+       quantity: quantity
        })
+       console.log('cantidad agregada: ',quantity)
     }
     return(
         <div className="flex flex-col gap-5 mt-6">
