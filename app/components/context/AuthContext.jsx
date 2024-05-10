@@ -1,7 +1,7 @@
 'use client'
 import { auth } from "@/app/firebase/firebaseConfig"
 import { useContext,createContext,useState,useEffect } from "react"
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged,signOut } from "firebase/auth"
 
 const AuthContext = createContext()
 
@@ -36,12 +36,21 @@ export const AuthProvider = ({ children }) => {
     const loginUser = async (values) => {
         try{
          await signInWithEmailAndPassword(auth, values.email,values.password)
-        
+         if (user) {
+          window.location.href = "/admin";
+        } else {
+          throw new Error("Error de autenticación");
+        }
+      
         }catch(error){
           console.error(error)
         }finally{
        console.log('user:', user);
       }
+    }
+
+    const logout = async() => {
+            await signOut(auth)
     }
 
     useEffect(()=>{
@@ -54,12 +63,18 @@ export const AuthProvider = ({ children }) => {
             email:user.email,
             uid: user.uid
           })
+        }else{
+          setUser({
+            logged:false,
+            email:null,
+            uid:null,
+          })
         }
       })
     },[])
   
     return (
-      <AuthContext.Provider value={{ user, registerUser, loginUser }}>
+      <AuthContext.Provider value={{ user, registerUser, loginUser, logout }}>
         {children}
       </AuthContext.Provider>
     );
