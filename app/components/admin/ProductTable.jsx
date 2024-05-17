@@ -1,6 +1,6 @@
 import Image from "next/image"
-
-
+import Link from "next/link"
+import { Boton } from "../ui/Boton"
 const ProductTable = async () => {
     const items = await fetch(`http://${process.env.AUTH_DOMAIN}/api/productos/todos`,{cache: "no-store"}).then(r => r.json())
 
@@ -38,16 +38,21 @@ const ProductTable = async () => {
                                      height={80}
                                      />
                                         </td>
-                                    <td>
-                                     
+                                    <td className="p-2">
+                                        <Boton className="bg-green-400">
+                                            <Link href={`http://${process.env.AUTH_DOMAIN}/admin/edit`}>editar</Link>
+                                        </Boton>
                                     </td>
                                 </tr>
                             ))
 
                         }    
-                    </tbody>    
+                    </tbody>   
+ 
             </table>
-
+                                         <Boton className="bg-orange-400">
+                                            <Link href={`http://${process.env.AUTH_DOMAIN}/admin/create`}>Crear +</Link>
+                                        </Boton>
         </div>
     )
 

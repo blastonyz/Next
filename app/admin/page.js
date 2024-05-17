@@ -7,7 +7,9 @@ export default function Admin () {
     <section className='top-20 py-20 text-center'>
         <h2> Admin</h2>
         <ProductTable/>
+        <div className='mt-10'>
         <LogoutButon/>
+        </div>
     </section>
   )
 }

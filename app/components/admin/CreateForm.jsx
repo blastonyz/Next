@@ -3,26 +3,19 @@
 import { useState } from "react"
 import  {Boton}  from "../ui/Boton.jsx"
 import {doc,setDoc} from "firebase/firestore"
-import { db } from "@/app/firebase/firebaseConfig.js"
+import {ref, uploadBytes, getDownloadURL} from "firebase/storage"
+import { db, storage } from "@/app/firebase/firebaseConfig.js"
 
 console.log('form importado');
 
-const CreateProduct = async (values) => {
-    /*
-        const stringValueId = values.id.toString()
-        console.log('id string',stringValueId)
-        const docRef = doc(db, 'productos', stringValueId);
-        console.log('referencia', docRef.path);
-        try {
-            console.log('values',values);
-            await setDoc(docRef, { ...values });
-            console.log("producto agregado");
-        } catch (error) {
-            console.error("Error al agregar producto:", error);
-        }*/
-    
+const CreateProduct = async (values, file) => {
+    const storageRef = ref(storage, values.id)
+    const fileSnapshot = await uploadBytes(storageRef,file)
+
+    const fileUrl = await getDownloadURL(fileSnapshot.ref)
+
     const docRef = doc(db,"productos", values.id)
-    return  setDoc(docRef,{...values}).then(()=> console.log("producto agregado"))
+    return  setDoc(docRef,{...values,image:fileUrl}).then(()=> console.log("producto agregado"))
     
 }
 
@@ -33,21 +26,34 @@ const CreateForm = () => {
         categoria:'',
         stock:0,
         description: '',
-        id:''
-
+        id:'',
+        image:''
     })
+    const [file,setFile] = useState(null)
 
     const handleChange = (e) => {
-        setValues({
+        const {name,value} = e.target;        setValues({
             ...values,
-            [e.target.name] : e.target.value
-        })
+            [name]:value    })
+    }
+
+    const handleFile = (e) => {
+        console.log(e.target.files);
+        if (e.target.files.length > 0) {
+            setFile(e.target.files[0]);
+            console.log("Archivo seleccionado:", e.target.files[0]);  // Imprime el archivo seleccionado
+        } else {
+            console.error("No se ha seleccionado ningún archivo");
+        }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('e', e);
-        
+        if (!file) {
+            console.error("No se ha seleccionado un archivo");
+            return;
+        }
         const res = await CreateProduct(values)
       
         console.log('despues', res);
@@ -110,7 +116,15 @@ const CreateForm = () => {
                 id="id"
                 name="id"
                 onChange={handleChange} />
-                <Boton type='submit' >Enviar</Boton>
+                
+                <label htmlFor="file">Imagen: </label>
+                <input type="file"
+                required
+                className="p-2 rounded w-full border border-blue-600 block my-4"
+                id="file"
+                name="file"
+                onChange={handleFile} />
+                <Boton type='submit' className="items-center m-auto"  >Enviar</Boton>
             </form>
         </div>
     )
