@@ -22,6 +22,16 @@ export const CartProvider = ({children}) => {
         return cart.reduce((acc,item) => acc + item.quantity,0)
     }
 
+    const productsOrder = () => {
+         const products = cart.map(({ title, quantity,id }) => ({ title, quantity,id }))
+         return products
+    }
+
+    const priceTotal = () => {
+        const sub = cart.reduce((acc, item) => acc + (item.quantity * item.price), 0);
+        return sub
+    }   
+
     const delProduct = (id) => {
         const delProduct = cart.filter(item => item.id !== id);
         console.log('producto borrado',delProduct);
@@ -34,7 +44,7 @@ export const CartProvider = ({children}) => {
     }
 
     return(
-        <CartContext.Provider value={{cart,addToCart,addToCart,isInCart,totalQty,emptyCart,delProduct}}>
+        <CartContext.Provider value={{cart,addToCart,addToCart,isInCart,totalQty,emptyCart,delProduct,priceTotal,productsOrder}}>
             {children}
          </CartContext.Provider>
     )

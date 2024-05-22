@@ -1,9 +1,10 @@
 'use client'
 import { CartDetail } from "../components/cart/CartDetail";
 import { useCartContext } from "../components/context/CartContext";
+import Link from "next/link";
 
 export default function Cart(){
-    const {cart,delProduct} = useCartContext();
+    const {cart,delProduct,priceTotal} = useCartContext();
 
     return (
       <>
@@ -21,6 +22,8 @@ export default function Cart(){
             </ul>
           )}
           <hr />
+          <h4 className="text-right">Total: ${priceTotal()}</h4>
+          <Link href={"/cart/checkout"}>Comprar</Link>
         </main>
        
       </>

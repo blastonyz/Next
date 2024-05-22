@@ -40,7 +40,7 @@ const ProductTable = async () => {
                                         </td>
                                     <td className="p-2">
                                         <Boton className="bg-green-400">
-                                            <Link href={`http://${process.env.AUTH_DOMAIN}/admin/edit`}>editar</Link>
+                                            <Link href={`http://${process.env.AUTH_DOMAIN}/admin/edit/${item.id}`}>editar</Link>
                                         </Boton>
                                     </td>
                                 </tr>
