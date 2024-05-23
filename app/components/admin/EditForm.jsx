@@ -103,7 +103,6 @@ const EditForm = ({item}) => {
             
             <label htmlFor="file">Imagen: </label>
             <input type="file"
-            required
             className="p-2 rounded w-full border border-blue-600 block my-4"
             id="file"
             name="file"

@@ -2,47 +2,109 @@
 
 import { useState } from "react"
 import { Boton } from "../ui/Boton"
-import {addDoc,collection} from "firebase/firestore"
+import {doc,setDoc,Timestamp, writeBatch,getDoc} from "firebase/firestore"
 import {db} from "@/app/firebase/firebaseConfig"
 import { useCartContext } from "../context/CartContext"
 
 const CreateOrder = async (values) => {
-    const docRef = await addDoc(collection(db,"purchases"),values).then(()=> console.log("orden creada"))
-    return docRef
-}
+    console.log('values',values);
+    const docPromises = values.products.map(async (item) => {
+        const docRef = doc(db, "productos", item.id);
+        const documentSnapshot = await getDoc(docRef);
+        console.log('documentSnapshot', documentSnapshot);
+        return { id: item.id, data: documentSnapshot.data() };
+    });
+
+    const docs = await Promise.all(docPromises);
+    console.log('docs', docs);
+
+    const batch = writeBatch(db);
+    const outOfStock = [];
+
+    docs.forEach(({ id, data }) => {
+        if (data) {
+            const inStock = data.stock; // Aquí aseguramos que accedemos directamente al valor de stock
+            const itemInCart = values.products.find(item => item.id === id);
+            console.log('itemInCart', itemInCart);
+
+            if (itemInCart.quantity <= inStock) {
+                batch.update(doc(db, "productos", id), { stock: inStock - itemInCart.quantity });
+            } else {
+                outOfStock.push(itemInCart);
+            }
+        } else {
+            outOfStock.push(values.products.find(item => item.id === id));
+        }
+    });
+
+    console.log('outOfStock', outOfStock);
+    if (outOfStock.length > 0) return outOfStock;
+
+    const order = {
+        client: {
+            email: values.email,
+            address: values.address,
+            phone: values.phone
+        },
+        items: values.products.map(item => ({
+            title: item.title,
+            price: item.price,
+            id: item.id,
+            quantity: item.quantity
+        })),
+        date: new Date().toISOString(),
+        total: values.priceTotal
+    };
+
+    const docId = Timestamp.fromDate(new Date()).toMillis().toString();
+    const orderRef = doc(db, "orders", docId);
+    console.log('order', order);
+
+    await batch.commit();
+    console.log('Batch committed');
+
+    await setDoc(orderRef, order);
+    console.log('Order created with ID:', docId);
+
+    return docId;
+};
 
 const CartCheckout = () => {
+    const { priceTotal, productsOrder } = useCartContext();
 
-    const {priceTotal,productsOrder} = useCartContext()
+    const [values, setValues] = useState({
+        priceTotal: priceTotal(),
+        email: '',
+        products: productsOrder(),
+        address: '',
+        phone: '',
+        date: new Date().toISOString()
+    });
 
-        const [values, setValues] = useState({
-            priceTotal:priceTotal(),
-            email:'',
-            products:productsOrder(),
-            adress:'',
-            phone:''
-            
-        })
-        
-        const [message, setMessage] = useState(null);
-        const handleChange = (e) => {
-                 setValues({
-                ...values,
-                [e.target.name] : e.target.value
-                  })
+    const [message, setMessage] = useState(null);
+
+    const handleChange = (e) => {
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const result = await CreateOrder(values);
+        console.log('CreateOrder result', result);
+        if (Array.isArray(result)) {
+            setMessage('Algunos productos están fuera de stock.');
+        } else {
+            setMessage('Su compra fue realizada con éxito!');
         }
-
-        const handleSubmit = async (e) => {
-            e.preventDefault();
-            const order = await CreateOrder(values);
-            order? setMessage('Su compra fue realizada con Exito!'):null;
-        }
-
+    };
 
         return(
             <div className="container m-auto mt-10 pt-20 max-w-lg">
                 <h2>Detalles de su Compra</h2>
-                <p>{message}</p>
+                <p>✅{message}</p>
                 <h4>Total: {values.priceTotal}</h4>
                 <section>
                 <h4>Productos:{
@@ -72,11 +134,11 @@ const CartCheckout = () => {
                 name="phone"
                 onChange={handleChange} />
 
-                <label htmlFor="adress">Direccion: </label>
+                <label htmlFor="address">Direccion: </label>
                 <input type="text"
                 required
                 className="p-2 rounded w-full border border-blue-600 block my-4"
-                name="adress"
+                name="address"
                 onChange={handleChange} />
 
                      <Boton type='submit' className="text-center items-center m-auto"  >Comprar</Boton>

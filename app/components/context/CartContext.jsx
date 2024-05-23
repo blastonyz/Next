@@ -23,7 +23,7 @@ export const CartProvider = ({children}) => {
     }
 
     const productsOrder = () => {
-         const products = cart.map(({ title, quantity,id }) => ({ title, quantity,id }))
+         const products = cart.map(({ title,price, quantity,id }) => ({ title,price, quantity,id }))
          return products
     }
 
