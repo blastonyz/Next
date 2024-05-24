@@ -23,7 +23,8 @@ export default function Cart(){
           )}
           <hr />
           <h4 className="text-right">Total: ${priceTotal()}</h4>
-          <Link href={"/cart/checkout"}>Comprar</Link>
+          <Link href={"/cart/checkout"} className="bg-green-400 w-40 rounded items-center text-center">Comprar   $$</Link>
+        
         </main>
        
       </>

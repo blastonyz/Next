@@ -20,12 +20,12 @@ const Orders = async () => {
             </div>
            
 
-            <h2 className="text-2xl text-center my-10 border-b pb-4">Órdenes</h2>
+            <h2 className="text-2xl text-center my-10 border-b pb-4 justify-center m-auto">Órdenes</h2>
 
-            <ul className="p-5 container m-auto text-center ">
+            <ul className="p-5 container mx-auto text-center justify-center">
                 {
                     orders.map(order => (
-                        <li key={order.id} className="p-4 column bg-yellow-300 m-10 rounded-xl border-4 border-gray-400">
+                        <li key={order.id} className="p-4 bg-yellow-300 my-10 rounded-xl border-4 border-gray-400 max-w-screen-md mx-auto">
                             <p className="font-italic text-xl text-blue-600">Correo electrónico: {order.client.email}</p>
                             <p className="font-italic text-xl text-blue-600">Teléfono: {order.client.phone}</p>
                             <p className="font-italic text-xl text-blue-600">Dirección: {order.client.address}</p>

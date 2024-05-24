@@ -5,6 +5,7 @@ import { Boton } from "../ui/Boton"
 import {doc,setDoc,Timestamp, writeBatch,getDoc} from "firebase/firestore"
 import {db} from "@/app/firebase/firebaseConfig"
 import { useCartContext } from "../context/CartContext"
+import { OrderMessage } from "./OrderMessage/OrderMessage"
 
 const CreateOrder = async (values) => {
     console.log('values',values);
@@ -23,7 +24,7 @@ const CreateOrder = async (values) => {
 
     docs.forEach(({ id, data }) => {
         if (data) {
-            const inStock = data.stock; // Aquí aseguramos que accedemos directamente al valor de stock
+            const inStock = data.stock; 
             const itemInCart = values.products.find(item => item.id === id);
             console.log('itemInCart', itemInCart);
 
@@ -70,7 +71,7 @@ const CreateOrder = async (values) => {
 };
 
 const CartCheckout = () => {
-    const { priceTotal, productsOrder } = useCartContext();
+    const { priceTotal, productsOrder, emptyCart } = useCartContext();
 
     const [values, setValues] = useState({
         priceTotal: priceTotal(),
@@ -93,6 +94,7 @@ const CartCheckout = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const result = await CreateOrder(values);
+        emptyCart();
         console.log('CreateOrder result', result);
         if (Array.isArray(result)) {
             setMessage('Algunos productos están fuera de stock.');
@@ -104,7 +106,8 @@ const CartCheckout = () => {
         return(
             <div className="container m-auto mt-10 pt-20 max-w-lg">
                 <h2>Detalles de su Compra</h2>
-                <p>✅{message}</p>
+                <div>✅{message? <OrderMessage/>:null }</div>
+                
                 <h4>Total: {values.priceTotal}</h4>
                 <section>
                 <h4>Productos:{
@@ -141,7 +144,7 @@ const CartCheckout = () => {
                 name="address"
                 onChange={handleChange} />
 
-                     <Boton type='submit' className="text-center items-center m-auto"  >Comprar</Boton>
+                     <Boton type='submit' className="text-center items-center m-auto bg-orange-400"  >Comprar</Boton>
                 </form>
                 </div>
                 </div>

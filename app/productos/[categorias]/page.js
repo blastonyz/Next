@@ -13,17 +13,20 @@ export function generateStaticParams (){
 export const revalidate = 3600
 
 const Productos = ({params}) => {
-    console.log(params);
+    
     const {categorias} = params;
-    return(
-        <section className="container m-auto">
+    return(<>
+        <section className="container m-auto c1">
 
-            <div className="flex gap-10 ">
+            <div className="flex gap-10 mt-10 ">
                 <CategoriesMenu/>
-                <ProductList categoria={categorias}/>
+               
             </div>
         </section>
-       
+        <section className="container m-auto mt-100">
+        <ProductList categoria={categorias}/>
+        </section>
+        </>
     )
 }
 

@@ -50,9 +50,14 @@ const ProductTable = async () => {
                     </tbody>   
  
             </table>
-                                         <Boton className="bg-orange-400">
-                                            <Link href={`http://${process.env.AUTH_DOMAIN}/admin/create`}>Crear +</Link>
-                                        </Boton>
+                            <div className="m-auto p-10 flex justify-evenly"> 
+                            <Boton className="bg-orange-500">
+                             <Link href={`http://${process.env.AUTH_DOMAIN}/admin/create`}>Crear +</Link>
+                            </Boton>
+                            <Boton className="bg-orange-500">
+                            <Link href={`http://${process.env.AUTH_DOMAIN}/admin/orders`}>Ventas</Link>
+                            </Boton>               
+                            </div>
         </div>
     )
 

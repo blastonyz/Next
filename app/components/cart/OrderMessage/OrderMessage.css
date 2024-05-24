@@ -1,0 +1,7 @@
+.order {
+    background: url('../../../../public/backgrounds/orderback.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover; 
+    box-sizing:border-box;
+}
