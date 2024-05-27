@@ -11,8 +11,8 @@ export const ProductList = async ({ categoria }) => {
     
 
     return (
-        <section className='container m-auto soyProdList'>
-             <div className='flex flex-wrap justify-center gap-10 pt-10'>
+        <section className='container m-auto soyProdList min-h-full'>
+             <div className='flex flex-wrap justify-center gap-10 min-h-full'>
             {items.map(item => <ProductCard key={item.id} item={item}/>)}
             </div>
         </section>

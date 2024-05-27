@@ -10,7 +10,7 @@ export const Nosotros = ()=> {
   };
   return (
     <section className='nosotros size-full items-center text-center mt-100 flex justify-center'>
-      <div className='mt-60 pt-40'>
+      <div className='mt-30 pt-40'>
         <Carrousel autoPlay={props.autoPlay} showButtons={props.showButtons}/>   
       </div>  
     </section>

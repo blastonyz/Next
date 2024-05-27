@@ -15,3 +15,10 @@
 .body{
   width: 100%;
 }
+.ProductsContainer .CategoriesMenu {
+  display: none;
+}
+
+.ProductsContainer:hover .CategoriesMenu {
+  display: block;
+}

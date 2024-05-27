@@ -15,12 +15,12 @@ const links = [
 export const CategoriesMenu = () => {
     const pathname = usePathname()
   return (
-    <aside className='flex flex-col gap-3 top-20 py-10'>
+    <aside className='flex flex-col gap-3 mt-20 py-10 italic text-xl'>
         {links.map(link => (
             <Link
             key={link.label}
             href={link.href}
-            className={`${pathname === link.href ? "font-semibold border-b" : ""}py-2 m-top`} >
+            className={`${pathname === link.href ? "font-semibold border-b" : ""}py-2 m-top `} >
             {link.label}    
             </Link>
         ))

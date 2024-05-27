@@ -18,8 +18,8 @@ const Productos = ({params}) => {
     return(<>
         <section className="container m-auto c1">
 
-            <div className="flex gap-10 mt-10 ">
-                <CategoriesMenu/>
+            <div >
+                <CategoriesMenu />
                
             </div>
         </section>
@@ -31,3 +31,4 @@ const Productos = ({params}) => {
 }
 
 export default Productos
+
