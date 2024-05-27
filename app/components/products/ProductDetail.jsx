@@ -3,8 +3,13 @@ import Image from 'next/image';
 import QuantSelec from './QuantSelec';
 
 export const ProductDetail = async ({id}) => {
+<<<<<<< HEAD
     
     const item = await fetch(`http://${process.env.API_URL}/api/producto/${id}`,{cache:"no-store"}).then(r => r.json()).catch(Error)
+=======
+  console.log('detail id', id);
+    const item = await fetch(`http://${process.env.VERCEL_URL}/api/producto/${id}/`,{cache:"no-store"}).then(r => r.json())
+>>>>>>> 5bb28f983b7c9670debc8867deeec7bfe16821c4
     console.log('item detail',item);
     
   return (
