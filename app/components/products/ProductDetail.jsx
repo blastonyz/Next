@@ -4,7 +4,7 @@ import QuantSelec from './QuantSelec';
 
 export const ProductDetail = async ({id}) => {
   console.log('urlID',process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN);
-    const item = await fetch(`http://${process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN}/api/producto/${id}`,{cache:"no-store"}).then(r => r.json()).catch(Error)
+    const item = await fetch(`http://${process.env.API_URL}/api/producto/${id}`,{cache:"no-store"}).then(r => r.json()).catch(Error)
     console.log('item detail',item);
     
   return (
