@@ -105,12 +105,12 @@ const CartCheckout = () => {
 
         return(
             <div className="container m-auto mt-10 pt-20 max-w-lg">
-                <h2>Detalles de su Compra</h2>
-                <div>✅{message? <OrderMessage/>:null }</div>
+                <h2 className="italic text-cl bold text-center bg-gray-300">Detalles de su Compra</h2>
+                <div>{message? <OrderMessage/>:null }</div>
                 
-                <h4>Total: {values.priceTotal}</h4>
+                <h4 className="non-italic text-m">Total: {values.priceTotal}</h4>
                 <section>
-                <h4>Productos:{
+                <h4 className="non-italic text-m">Productos:{
                     values.products.map(item=>{
                         return( 
                         <div key={item.id}>
