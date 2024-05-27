@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Boton } from "../ui/Boton"
 const ProductTable = async () => {
-    const items = await fetch(`http://${process.env.AUTH_DOMAIN}/api/productos/todos`,{cache: "no-store"}).then(r => r.json())
+    const items = await fetch(`http://${process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN}/api/productos/todos`,{cache: "no-store"}).then(r => r.json())
 
     return(
         <div className="overflow-x-auto">
@@ -40,7 +40,7 @@ const ProductTable = async () => {
                                         </td>
                                     <td className="p-2">
                                         <Boton className="bg-green-400">
-                                            <Link href={`http://${process.env.AUTH_DOMAIN}/admin/edit/${item.id}`}>editar</Link>
+                                            <Link href={`http://${process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN}/admin/edit/${item.id}`}>editar</Link>
                                         </Boton>
                                     </td>
                                 </tr>
@@ -52,10 +52,10 @@ const ProductTable = async () => {
             </table>
                             <div className="m-auto p-10 flex justify-evenly"> 
                             <Boton className="bg-orange-500">
-                             <Link href={`http://${process.env.AUTH_DOMAIN}/admin/create`}>Crear +</Link>
+                             <Link href={`http://${process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN}/admin/create`}>Crear +</Link>
                             </Boton>
                             <Boton className="bg-orange-500">
-                            <Link href={`http://${process.env.AUTH_DOMAIN}/admin/orders`}>Ventas</Link>
+                            <Link href={`http://${process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN}/admin/orders`}>Ventas</Link>
                             </Boton>               
                             </div>
         </div>

@@ -15,10 +15,11 @@
 .body{
   width: 100%;
 }
-.ProductsContainer .CategoriesMenu {
-  display: none;
-}
-
-.ProductsContainer:hover .CategoriesMenu {
-  display: block;
+.nosotros {
+  background: url(../public/backgrounds/orderback.png);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  width: 100vw;
+  height: 150vh;
+  
 }

@@ -15,6 +15,14 @@ const nextConfig = {
                 pathname:'/**',
             },
         ],
+    },
+    env:{
+        NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN : "localhost:3000",
+        NEXT_PUBLIC_FIREBASE_API_KEY : "AIzaSyC8ke4C5odvQZfISAfwlRi_1sUSxUhZrSo",
+        NEXT_PUBLIC_FIREBASE_PROJECT_ID : "next-cc43a",
+        NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET : "next-cc43a.appspot.com",
+        NEXT_PUBLIC_FIREBASE_SENDER_MESSAGING_ID : "454727340926",
+        NEXT_PUBLIC_FIREBASE_APP_ID : "1:454727340926:web:14ae9aacd34f308ce6192f"
     }
 };
 
