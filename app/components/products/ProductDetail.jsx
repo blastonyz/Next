@@ -3,7 +3,6 @@ import Image from 'next/image';
 import QuantSelec from './QuantSelec';
 
 export const ProductDetail = async ({id}) => {
-  console.log('detail id', id);
     
     const item = await fetch(`http://${process.env.AUTH_DOMAIN}/api/producto/${id}`,{cache:"no-store"}).then(r => r.json()).catch(Error)
     console.log('item detail',item);
