@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react"
-import Boton from '../ui/Boton.jsx'
+import {Boton} from '../ui/Boton.jsx'
 
 
 const ContactForm = () => {

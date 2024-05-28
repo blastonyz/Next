@@ -1,5 +1,5 @@
 'use client';
-import  Boton  from "../ui/Boton";
+import  {Boton}  from "../ui/Boton";
 import  Counter  from "../ui/Counter";
 import { useState } from "react";
 import { useCartContext } from "../context/CartContext.jsx";
