@@ -4,7 +4,7 @@ import { ProductCard } from './ProductCard.jsx';
 
 export const ProductList = async ({ categoria }) => {
     console.log('fetch:',process.env.API_URL);
-    const items = await fetch(`${process.env.API_URL}/api/productos/${categoria}`,{cache:"no-store"}).then(r => { 
+    const items = await fetch(`${process.env.API_URL}/api/productos/${categoria}`,{cache:"force-cache"}).then(r => { 
     if(!r.ok){
         throw new Error
     }    
