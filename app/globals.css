@@ -50,10 +50,10 @@ main{
 
 @media (max-width:635px){
   .soyProdList{
-    height: 440vh;
+    height: 450vh;
   }
   main{
-    height: 440vh;
+    height: 450vh;
   }
 
   .mainHeader{
@@ -78,7 +78,11 @@ main{
     border-radius: 2px;
   }
   
- 
+  .nosotros{
+    margin-top: 100px;
+    background-size: 50%;
+    background-position: left;
+  }
 
 
 }
