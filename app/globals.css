@@ -41,19 +41,19 @@ main{
 
 @media (max-width:1026px){
   .soyProdList{
-    height: 200vh;
+    height: 290vh;
   }
   main{
-    height: 200vh;
+    height: 290vh;
   }
 }
 
 @media (max-width:635px){
   .soyProdList{
-    height: 340vh;
+    height: 440vh;
   }
   main{
-    height: 340vh;
+    height: 440vh;
   }
 
   .mainHeader{
