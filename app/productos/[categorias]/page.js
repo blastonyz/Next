@@ -15,19 +15,11 @@ export const revalidate = 3600
 const Productos = ({params}) => {
     
     const {categorias} = params;
-    return(<>
-        <section className="container m-auto c1">
-
-            <div >
-                <CategoriesMenu />
-               
-            </div>
-        </section>
-        <section className="container m-auto mt-100">
+    return(    
+        <section className="container m-auto mt-48">
         <ProductList categoria={categorias}/>
         </section>
-        </>
-    )
+            )
 }
 
 export default Productos

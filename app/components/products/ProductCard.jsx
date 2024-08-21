@@ -12,9 +12,9 @@ export const ProductCard = ({item}) => {
             <Image
             alt={item.title}
             src={`/products-img/${item.image}`}
-            width={250}
-            height={250}
-            style={{objectFit: "contain"}}
+            width={300}
+            height={300}
+            objectFit="contain"
             loading='lazy'
             decoding='async'/>
 
