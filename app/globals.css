@@ -84,72 +84,7 @@ main{
             }
           }
 
-    @media (max-width:685px){
-      .soyProdList{
-        height: 450vh;
-      }
-      main{
-        box-sizing: border-box;
-        height: 450vh;
-      }
-
-      .mainHeader{
-        height: 150px; 
-        background-size:contain;
-        padding-top: 13px; 
-        display: flex;
-        justify-content: center;
-        box-sizing: border-box;
-      }
-
-      .navBar {
-        flex-direction: column; 
-        align-items: flex-start; 
-        padding-bottom: 5px;
-        width: 50%;
-        margin-left:2rem ;
-        align-items: center;
-      }
-
-      .menu-item {
-        margin-left: 0;
-      }  
-      /* Ajuste para el submenú en pantallas pequeñas */
-      .subOpen {
-        background-color: rgba(138, 141, 143, 0.813);
-        padding: 10px; 
-        top: 130px;
-        height: 90vh;
-        border-radius: 2px;
-        filter: grayscale(50%) brightness(120%) contrast(110%);
-        left: -45%;
-      }
-      .aSideCont{
-          position: absolute;
-          color: aliceblue;
-      }
-      .nosotros{
-        margin-top: 100px;
-        background-size: 50%;
-        background-position: left;
-      }
-      .cartCont {
-        position: relative;
-        margin-right: 10px; /* Asegura que el margen derecho sea pequeño */
-        width: 50px; /* Ajusta el ancho del ícono del carrito */
-        height: 50px; /* Ajusta la altura del ícono del carrito */
-        left: auto; /* Asegura que no esté fuera del contenedor */
-        right: 10px; /* Mantén el ícono dentro del margen derecho */
-      }
-
-      .cart .carLink{
-        position: relative;
-      
-        width: 80px;
-        height: 80px;
-      }
-
-}
+     
 
 .nosotros {
   background: url(../public/backgrounds/orderback.png);
@@ -181,3 +116,73 @@ main{
 
 }
 
+@media (max-width:685px){
+  .soyProdList{
+    height: 450vh;
+  }
+  main{
+    box-sizing: border-box;
+    height: 450vh;
+  }
+
+  .mainHeader{
+    height: 150px; 
+    background-size:contain;
+    padding-top: 13px; 
+    display: flex;
+    justify-content:flex-start;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .navBar {
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding-bottom: 5px;
+    width: 45%;
+    margin-left:2rem ;
+    align-items: center;
+  }
+
+  .menu-item {
+    margin-left: 0;
+  }  
+  /* Ajuste para el submenú en pantallas pequeñas */
+  .subOpen {
+    background-color: rgba(138, 141, 143, 0.813);
+    padding: 10px; 
+    top: 130px;
+    height: 90vh;
+    border-radius: 2px;
+    filter: grayscale(50%) brightness(120%) contrast(110%);
+    left: -60%;
+  }
+  .aSideCont{
+      position: absolute;
+      color: aliceblue;
+  }
+  .nosotros{
+    margin-top: 100px;
+    background-size: 50%;
+    background-position: left;
+  }
+  .cartCont {
+    position: absolute;
+    inset: 50px 10vw auto auto;
+    width: 60px; 
+    height: 60px; 
+   margin-right: auto;
+  }
+
+  .cart .carLink{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    inset: 50px 10vw auto auto;
+    margin-right: 10px;
+  }
+
+  .subLink{
+    margin-left: 10px;
+  }
+}

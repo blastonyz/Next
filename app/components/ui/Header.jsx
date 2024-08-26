@@ -42,11 +42,12 @@ export const Header = () => {
       console.log('state',openCat);
       
   }
+ 
   return (
     <header className='w-full mainHeader'>
-      <div className='container m-auto flex justify-between items-center headContainer'>  
+      <div className='container m-auto flex justify-between items-center w-full headContainer'>  
         
-      <div className='w-24 h-auto pt-4'>
+      <div className='w-24 h-auto pt-4 menuNav'>
         <Menu collapse={collapse} menuClick={menuClick} />
       </div>
 
