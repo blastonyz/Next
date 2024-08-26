@@ -21,7 +21,7 @@ const Carrousel = ({autoPlay,showButtons}) => {
       
         return () => clearInterval(interval)
       }
-    }, [index, autoPlay, showButtons])
+    }, [ autoPlay, showButtons])
     
     
     const previous = () =>{

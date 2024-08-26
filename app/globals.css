@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .mainHeader{
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
@@ -12,10 +19,18 @@
   height: 100px;
   color: aliceblue;
 }
+.navBar{
+  width: 75%;
+  position: absolute;
+  left: 15%;
+}
+
 .body{
   width: 100%;
 }
+
 main{
+  box-sizing: border-box;
   margin-top: 160px;
   height: 150vh;
 }
@@ -24,66 +39,115 @@ main{
 }
 
 .menu-item {
-  text-align: center;
+  margin-left: 2rem;
 }
 
 .subOpen{
   background-color: rgba(138, 141, 143, 0.581);
-  padding-top: 10px; /* Reducir el padding-top para evitar que afecte al contenedor */
-  position: absolute; /* Cambiar a 'absolute' para que el submenú flote */
-  left: 0; /* Alinearlo al margen izquierdo */
-  top: 100%; /* Posicionarlo justo debajo del contenedor padre */
-  z-index: 1; /* Asegurarte de que esté por encima de otros elementos */
+  padding-top: 10px; 
+  position: absolute; 
+  left: -20%; 
+  top: 64px; 
   width: 200px;
   border-radius: 2px;
   height: 156vh;
 }
 
-@media (max-width:1026px){
-  .soyProdList{
-    height: 290vh;
-  }
-  main{
-    height: 290vh;
-  }
-}
+      @media (max-width:1026px){
+            .soyProdList{
+              height: 290vh;
+            }
+            main{
+              height: 290vh;
+            }
+            .headContainer{
+              margin-left: 0;
+              padding-left: 30px;
+            }
+            .navBar {
+              width: 70%;
+              margin-left:0;
+              margin-right: 1vw;
+              padding-bottom: 5px;
+            }
+            .menu-item {
+              margin-left: 1rem;
+            }
+            .subOpen{
+              left: -22%;
+            }
+            .cartCont .cart .cartLink {
+              position: absolute;
+              right: 2rem;
+              width: 80px;
+              height: 80px;
+            }
+          }
 
-@media (max-width:635px){
-  .soyProdList{
-    height: 450vh;
-  }
-  main{
-    height: 450vh;
-  }
+    @media (max-width:685px){
+      .soyProdList{
+        height: 450vh;
+      }
+      main{
+        box-sizing: border-box;
+        height: 450vh;
+      }
 
-  .mainHeader{
-    height: 150px; 
-    background-size:contain;
-    padding-top: 13px; 
-  }
+      .mainHeader{
+        height: 150px; 
+        background-size:contain;
+        padding-top: 13px; 
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+      }
 
-  .navBar {
-    flex-direction: column; 
-    align-items: flex-start; 
-    margin-left: 30px;
-    padding-bottom: 5px;
-  }
+      .navBar {
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding-bottom: 5px;
+        width: 50%;
+        margin-left:2rem ;
+        align-items: center;
+      }
 
-  /* Ajuste para el submenú en pantallas pequeñas */
-  .subOpen {
-    background-color: rgba(138, 141, 143, 0.581);
-    padding: 10px; 
-    top: 150px;
-    height: 90vh;
-    border-radius: 2px;
-  }
-  
-  .nosotros{
-    margin-top: 100px;
-    background-size: 50%;
-    background-position: left;
-  }
+      .menu-item {
+        margin-left: 0;
+      }  
+      /* Ajuste para el submenú en pantallas pequeñas */
+      .subOpen {
+        background-color: rgba(138, 141, 143, 0.813);
+        padding: 10px; 
+        top: 130px;
+        height: 90vh;
+        border-radius: 2px;
+        filter: grayscale(50%) brightness(120%) contrast(110%);
+        left: -45%;
+      }
+      .aSideCont{
+          position: absolute;
+          color: aliceblue;
+      }
+      .nosotros{
+        margin-top: 100px;
+        background-size: 50%;
+        background-position: left;
+      }
+      .cartCont {
+        position: relative;
+        margin-right: 10px; /* Asegura que el margen derecho sea pequeño */
+        width: 50px; /* Ajusta el ancho del ícono del carrito */
+        height: 50px; /* Ajusta la altura del ícono del carrito */
+        left: auto; /* Asegura que no esté fuera del contenedor */
+        right: 10px; /* Mantén el ícono dentro del margen derecho */
+      }
 
+      .cart .carLink{
+        position: relative;
+      
+        width: 80px;
+        height: 80px;
+      }
 
 }
 
@@ -103,14 +167,17 @@ main{
 }
 
 .cart .cartLink {
- padding-left: 20px;
+  position: absolute;
   width: 75px;
   height: 75px;
  
 }
 
-.cartCont .cartLink{
+.cartCont{
   background-color: rgba(86, 89, 92, 0.537); 
   border-radius: 3px;
+  position:absolute;
+  left: 85vw;
+
 }
 

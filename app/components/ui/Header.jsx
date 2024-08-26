@@ -50,7 +50,7 @@ export const Header = () => {
         <Menu collapse={collapse} menuClick={menuClick} />
       </div>
 
-        <nav className={`container ${collapse ? '' : 'hiddenMenu'} flex justify-evenly text-center navBar`}>
+        <nav className={`container ${collapse ? '' : 'hiddenMenu'} flex  navBar`}>
           
               {links.map((link, index) =>{
                  return link.submenu?(
@@ -62,7 +62,7 @@ export const Header = () => {
                   </p>
                    <aside className={`${openCat? 'subOpen': 'hidden'}`}> 
                 {openCat && (
-                  <div className='rounded'>
+                  <div className='rounded aSideCont'>
                     {link.submenu.map(sublink => (
                       <Link 
                         key={sublink.label} 
@@ -88,7 +88,7 @@ export const Header = () => {
               })}
             </nav>
             
-        <div className='me-10 cartCont w-24'>
+        <div className='cartCont'>
           <CartWidget/>
         </div>
       </div>
