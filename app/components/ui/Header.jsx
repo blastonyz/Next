@@ -51,7 +51,7 @@ export const Header = () => {
         <Menu collapse={collapse} menuClick={menuClick} />
       </div>
 
-        <nav className={`container ${collapse ? '' : 'hiddenMenu'} flex  navBar`}>
+        <nav className={`container ${collapse ? '' : 'hiddenMenu'} flex justify-between navBar`}>
           
               {links.map((link, index) =>{
                  return link.submenu?(
